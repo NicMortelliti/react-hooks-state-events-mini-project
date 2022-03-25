@@ -13,9 +13,23 @@ function App() {
       <h2>My tasks</h2>
       <CategoryFilter />
       <NewTaskForm />
-      <TaskList />
+      <TaskList tasks={TASKS} />
     </div>
   );
 }
 
 export default App;
+
+/*
+
+App
+ ├--Task List
+ |   ├--Task
+ |   ├--Task
+ |   ├--Task
+ |   ├--Task
+ |   ├--Task
+
+
+
+*/
