@@ -13,6 +13,7 @@ function App() {
   function handleCatSelect(category) {
     setSelectedCat(category);
   }
+
   return (
     <div className="App">
       <h2>My tasks</h2>
@@ -22,7 +23,7 @@ function App() {
         handleCatSelect={handleCatSelect}
       />
       <NewTaskForm />
-      <TaskList tasks={TASKS} />
+      <TaskList tasks={TASKS} selectedCat={selectedCat} />
     </div>
   );
 }
