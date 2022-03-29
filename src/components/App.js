@@ -28,6 +28,10 @@ function App() {
     }
   });
 
+  function onTaskFormSubmit(taskObj) {
+    console.log(`I got ${taskObj.text} and ${taskObj.category}`);
+  }
+
   return (
     <div className="App">
       <h2>My tasks</h2>
@@ -36,7 +40,10 @@ function App() {
         selectedCat={selectedCat}
         handleCatSelect={handleCatSelect}
       />
-      <NewTaskForm />
+      <NewTaskForm
+        categories={CATEGORIES}
+        onTaskFormSubmit={onTaskFormSubmit}
+      />
       <TaskList
         tasks={filteredTasks}
         handleTaskDelete={handleTaskDelete}
