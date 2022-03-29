@@ -2,11 +2,13 @@ import React, { useState } from "react";
 
 function NewTaskForm({ categories, onTaskFormSubmit }) {
   const [detailsState, setDetailsState] = useState();
-  const [catState, setCatState] = useState();
+  const [catState, setCatState] = useState("Code");
 
   const catArray = categories.map(cat => {
     if (cat !== "All") {
-      return <option>{cat}</option>;
+      return <option key={cat}>{cat}</option>;
+    } else {
+      return null;
     }
   });
 

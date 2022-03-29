@@ -1,7 +1,7 @@
 import React from "react";
 import Task from "./Task.js";
 
-function TaskList({ tasks, handleTaskDelete, selectedCat }) {
+function TaskList({ tasks, handleTaskDelete }) {
   const tasksArray = tasks.map(task => {
     return (
       <Task

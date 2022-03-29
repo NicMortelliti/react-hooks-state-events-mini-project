@@ -29,7 +29,8 @@ function App() {
   });
 
   function onTaskFormSubmit(taskObj) {
-    console.log(`I got ${taskObj.text} and ${taskObj.category}`);
+    const newTasksArray = [...tasksStateArray, taskObj];
+    setTasksStateArray(newTasksArray);
   }
 
   return (
@@ -44,11 +45,7 @@ function App() {
         categories={CATEGORIES}
         onTaskFormSubmit={onTaskFormSubmit}
       />
-      <TaskList
-        tasks={filteredTasks}
-        handleTaskDelete={handleTaskDelete}
-        selectedCat={selectedCat}
-      />
+      <TaskList tasks={filteredTasks} handleTaskDelete={handleTaskDelete} />
     </div>
   );
 }
