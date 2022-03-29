@@ -1,6 +1,6 @@
 import React from "react";
 
-function CategoryFilter({ categories, handleCatSelect, selectedCat }) {
+function CategoryFilter({ categories, selectedCat, handleCatSelect }) {
   const btnElements = categories.map(category => {
     return (
       <button
@@ -18,7 +18,6 @@ function CategoryFilter({ categories, handleCatSelect, selectedCat }) {
   return (
     <div className="categories">
       <h5>Category filters</h5>
-      {/* render <button> elements for each category here */}
       {btnElements}
     </div>
   );

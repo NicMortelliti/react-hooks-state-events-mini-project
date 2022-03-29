@@ -9,10 +9,24 @@ console.log({ CATEGORIES, TASKS });
 
 function App() {
   const [selectedCat, setSelectedCat] = useState("All");
+  const [tasksStateArray, setTasksStateArray] = useState(TASKS);
 
-  function handleCatSelect(category) {
-    setSelectedCat(category);
+  function handleTaskDelete(text) {
+    const newTaskArray = tasksStateArray.filter(task => task.text !== text);
+    setTasksStateArray(newTaskArray);
   }
+
+  function handleCatSelect(newSelectedCat) {
+    setSelectedCat(newSelectedCat);
+  }
+
+  const filteredTasks = tasksStateArray.filter(task => {
+    if (selectedCat === "All") {
+      return true;
+    } else {
+      return task.category === selectedCat;
+    }
+  });
 
   return (
     <div className="App">
@@ -23,7 +37,11 @@ function App() {
         handleCatSelect={handleCatSelect}
       />
       <NewTaskForm />
-      <TaskList tasks={TASKS} selectedCat={selectedCat} />
+      <TaskList
+        tasks={filteredTasks}
+        handleTaskDelete={handleTaskDelete}
+        selectedCat={selectedCat}
+      />
     </div>
   );
 }
